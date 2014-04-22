@@ -9,6 +9,9 @@ application up and running.
 
 Things you may want to cover:
 
+* Environment Variables
+Environment variables are stored in config/application.yml
+
 * Ruby version
 
 * System dependencies
