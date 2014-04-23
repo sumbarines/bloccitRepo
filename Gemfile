@@ -56,6 +56,9 @@ gem 'devise'
 # For handling sensitive information
 gem 'figaro'
 
+# For assigning user roles
+gem 'pundit'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
