@@ -68,6 +68,9 @@ gem 'pundit'
 # Use thin as the app server
  gem 'thin'
 
+# Use Markdown Gem
+gem 'redcarpet'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
