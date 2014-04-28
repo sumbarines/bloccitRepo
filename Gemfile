@@ -71,8 +71,13 @@ gem 'pundit'
 # Use Markdown Gem
 gem 'redcarpet'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+# Image handling
+gem 'carrierwave'
+gem 'mini_magick', '~> 3.5.0'
 
+# Help uploading images to S3
+gem 'fog'
+
+# Use Capistrano for deployment
 # Use debugger
 # gem 'debugger', group: [:development, :test]
