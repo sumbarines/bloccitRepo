@@ -78,6 +78,9 @@ gem 'mini_magick', '~> 3.5.0'
 # Help uploading images to S3
 gem 'fog'
 
+#Pagination
+gem 'will_paginate', '~> 3.0.5'
+
 # Use Capistrano for deployment
 # Use debugger
 # gem 'debugger', group: [:development, :test]
