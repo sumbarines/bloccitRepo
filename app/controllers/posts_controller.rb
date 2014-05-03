@@ -11,11 +11,11 @@ class PostsController < ApplicationController
 #    authorize @posts
 #  end
 
-  def show
+  def show  
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
-    @comment = @post.comments.build
     @comments = @post.comments
+    @comment = Comment.new
   end
 
   def create
@@ -51,6 +51,22 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @post = Post.find(params[:id])
+
+    title = @post.title
+    authorize @post
+    if @post.destroy
+      flash[:notice] = "\"#{title}\" was deleted."
+      redirect_to @topic
+    else
+      flash[:error] = "There was an error deleting \"#{title}\"."
+      render :show
+    end
+  end
+
   
   private
 
