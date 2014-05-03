@@ -1,15 +1,13 @@
 <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
-  <div class = "col-md-4">
-    <% @comments.each do |comment| %>
+  <div class = "col-md-8">
       <div class="media">
           <div class="media-body">
-            <h4 class="media-heading">
+            <h6 class="media-heading">
               <p><%= @post.user.name %></p>
               <p><%= comment.body %></p>
-              comment
-            </h4>
+            </h6>
           </div>
       </div>
-    <% end %>
+
   </div>
 <% end %>
