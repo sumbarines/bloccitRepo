@@ -1,13 +1,10 @@
 Bloccit::Application.routes.draw do
 
-  #get "comments/index"
-  #get "comments/show"
-  #get "comments/new"
-  #get "comments/edit"
-  devise_for :users
-  resources :users, only: [:show, :update]
+  get "posts/index"
+
+  resources :posts, only: [:index]
   resources :topics do
-    resources :posts, except: [:index] do
+    resources :posts, except: [:index], controller: 'topics/posts' do
       resources :comments, only: [:create, :destroy]
       resources :favorites, only: [:create, :destroy]
       get '/up-vote' => 'votes#up_vote', as: :up_vote
@@ -15,6 +12,10 @@ Bloccit::Application.routes.draw do
     end
   end
   
+
+  devise_for :users
+  resources :users, only: [:show, :index, :update]
+
   get 'about' => 'welcome#about'
   root 'welcome#index'
   #Commented line below is bug in the tutorial
