@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :topic
+  scope :top_rated, -> { order("votes_count DESC") }
   mount_uploader :image, ImageUploader # add this line.
   
   default_scope { order('created_at DESC')}
@@ -35,6 +36,12 @@ class Post < ActiveRecord::Base
 
     self.update_attribute(:rank, new_rank)
   end
+
+#  def self.top_rated
+#  self.select('posts.*').  #Select all of posts attributes
+#    select('COUNT(DISTINCT votes) AS votes_count').  #Count number of post's votes
+#    order('votes_count DESC') #Rank in descending order
+#  end
 
   private
 
